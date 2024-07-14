@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const cors = require("cors");
+const corsOptions = require("./config/corsOptions");
 const { logger, logEvents } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const PORT = process.env.PORT || 3500;
@@ -9,18 +10,6 @@ const PORT = process.env.PORT || 3500;
 // custom middleware loger
 app.use(logger);
 
-// remove || !origin during production
-const whitelist = ["https://tinkermak.com", "http://localhost:3000"];
-const corsOptions = {
-  origin: (origin, callback) => {
-    if (whitelist.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  optionsSuccessStatus: 200,
-};
 app.use(cors(corsOptions));
 
 // built-in middleware to handle urlencoded data
