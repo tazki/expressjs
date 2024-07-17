@@ -6,12 +6,16 @@ const corsOptions = require("./config/corsOptions");
 const { logger, logEvents } = require("./middleware/logEvents");
 const errorHandler = require("./middleware/errorHandler");
 const verifyJWT = require("./middleware/veriftJWT");
+const credentials = require("./middleware/credentials");
 const cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 3500;
 
 // custom middleware loger
 app.use(logger);
-
+// Handle options credentials check - before CORS
+// and fetch cookies credentials requirement
+app.use(credentials);
+// Cross Origin Sharing
 app.use(cors(corsOptions));
 
 // built-in middleware to handle urlencoded data
