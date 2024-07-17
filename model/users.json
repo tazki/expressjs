@@ -1,10 +1,19 @@
 [
     {
         "username": "mark1",
-        "password": "$2b$10$dzGr8o81FiRc9izjOAgJR.qc16grrPL0yiJMhB8Pu0nM3JAjXd7jy"
+        "password": "$2b$10$dzGr8o81FiRc9izjOAgJR.qc16grrPL0yiJMhB8Pu0nM3JAjXd7jy",
+        "roles": {
+            "User": 2001,
+            "Editor": 1984,
+            "Admin": 5150
+        }
     },
     {
         "username": "mark2",
-        "password": "$2b$10$mlIGFa5XAkQSoyWG0q5XPewwmC9FvHaeVTfIp7pN1qY2mTl0GGP8q"
+        "password": "$2b$10$mlIGFa5XAkQSoyWG0q5XPewwmC9FvHaeVTfIp7pN1qY2mTl0GGP8q",
+        "roles": {
+            "User": 2001,
+            "Editor": 1984
+        }
     }
 ]
